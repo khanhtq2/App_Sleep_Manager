@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vietsomni/Mainlayout.dart';
+import 'package:vietsomni/main_layout.dart';
 
 class StoriesPage extends StatelessWidget {
   const StoriesPage({super.key});
