@@ -21,7 +21,7 @@ class _MusicPageState extends State<MusicPage> {
         backgroundColor: Color.fromARGB(255, 7, 55, 100),
         leading: IconButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, '/main');
+            Navigator.popUntil(context, ModalRoute.withName('/main'));
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
@@ -30,7 +30,7 @@ class _MusicPageState extends State<MusicPage> {
         scrollDirection: Axis.vertical,
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height, // 👈 full màn hình
+            minHeight: MediaQuery.of(context).size.height,
           ),
           child: Container(
             width: double.infinity,

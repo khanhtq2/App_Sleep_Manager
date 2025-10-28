@@ -22,7 +22,7 @@ class ViewAll extends StatelessWidget {
         ),
         TextButton.icon(
           onPressed: () {
-            Navigator.pushReplacement(
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => page),
             );

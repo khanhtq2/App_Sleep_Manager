@@ -66,7 +66,13 @@ class ScreenLogin extends StatelessWidget {
 
                   //button đăng nhập
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        '/main',
+                        (route) => false,
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 219, 129, 255),
                       minimumSize: Size(double.infinity, 60),
@@ -112,10 +118,10 @@ class ScreenLogin extends StatelessWidget {
                       backgroundColor: const Color.fromARGB(255, 219, 129, 255),
                       minimumSize: const Size(double.infinity, 60),
                     ),
-                    
+
                     child: Row(
                       children: const [
-                        Icon(Icons.email, color: Colors.black, size: 40,),
+                        Icon(Icons.email, color: Colors.black, size: 40),
                         SizedBox(width: 20),
                         Text(
                           'Đăng nhập với Google',
@@ -134,7 +140,7 @@ class ScreenLogin extends StatelessWidget {
                     ),
                     child: Row(
                       children: const [
-                        Icon(Icons.cloud, color: Colors.black, size: 40,),
+                        Icon(Icons.cloud, color: Colors.black, size: 40),
                         SizedBox(width: 20),
                         Text(
                           'Đăng nhập với Icloud',

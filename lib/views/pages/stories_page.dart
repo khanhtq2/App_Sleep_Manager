@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vietsomni/main_layout.dart';
 
 class StoriesPage extends StatelessWidget {
   const StoriesPage({super.key});
@@ -11,11 +10,7 @@ class StoriesPage extends StatelessWidget {
       body: Center(child: Text('Stories Page Content Here')),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Action when button is pressed
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => MainLayout()),
-          );
+          Navigator.popUntil(context, ModalRoute.withName('/main'));
         },
         child: Icon(Icons.play_arrow),
       ),

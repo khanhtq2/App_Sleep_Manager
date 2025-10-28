@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/main_layout.dart';
+import 'package:vietsomni/views/pages/music_page.dart';
 import 'views/screens/screen_splash.dart';
 
 void main() {
@@ -13,6 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const ScreenSplash(),
+      routes: {
+        '/main': (context) => MainLayout(),
+        '/music': (context) => MusicPage(),
+      },
     );
   }
 }
