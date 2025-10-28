@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../pages/home_page.dart';
+import 'package:vietsomni/Mainlayout.dart';
 
 class StoriesPage extends StatelessWidget {
   const StoriesPage({super.key});
@@ -14,7 +14,7 @@ class StoriesPage extends StatelessWidget {
           // Action when button is pressed
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => HomePage()),
+            MaterialPageRoute(builder: (context) => MainLayout()),
           );
         },
         child: Icon(Icons.play_arrow),

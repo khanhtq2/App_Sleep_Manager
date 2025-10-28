@@ -24,6 +24,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
             child: Column(
               children: [
+                //Sleep Quality
                 Container(
                   padding: const EdgeInsets.all(10),
                   width: 360,
@@ -72,7 +73,10 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       SizedBox(height: 50),
+
+                      //
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +100,9 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
+
                 SizedBox(height: 25, width: double.infinity),
+
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Column(
@@ -136,9 +142,13 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       SizedBox(height: 20),
+
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // Bedtime
                           Container(
                             width: 160,
                             height: 52,
@@ -217,7 +227,8 @@ class HomePage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(width: 30),
+
+                          //Alarm
                           Container(
                             width: 160,
                             height: 52,
@@ -296,35 +307,28 @@ class HomePage extends StatelessWidget {
 
                       //Music Bar
                       ViewAll(page: MusicPage(), title: "Music"),
+
                       SizedBox(
-                        height: 104.88,
+                        height: 140,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            spacing: 2.0,
+                            spacing: 15.0,
                             children: [
-                              cardMusic(
+                              CardMusic(
                                 img: AssetImage(
-                                  'assets/img_project/Frame 148.png',
+                                  'assets/img_project/Rectangle 12.png',
                                 ),
                                 name: 'Moon Light',
                               ),
-                              cardMusic(
+                              CardMusic(
                                 img: AssetImage(
-                                  'assets/img_project/Frame 148.png',
+                                  'assets/img_project/Rectangle 12.png',
                                 ),
                                 name: 'Moon Light',
                               ),
-                              cardMusic(
-                                img: AssetImage(
-                                  'assets/img_project/Frame 148.png',
-                                ),
-                                name: 'Moon Light',
-                              ),
-                              cardMusic(
-                                img: AssetImage(
-                                  'assets/img_project/Frame 148.png',
-                                ),
+                              CardMusic(
+                                img: AssetImage('assets/img_project/Music.png'),
                                 name: 'Moon Light',
                               ),
                             ],
@@ -334,6 +338,7 @@ class HomePage extends StatelessWidget {
 
                       //Stories Bar
                       ViewAll(page: StoriesPage(), title: "Stories"),
+
                       SizedBox(
                         height: 70,
                         child: SingleChildScrollView(
@@ -376,6 +381,7 @@ class HomePage extends StatelessWidget {
 
                       //Meditation Bar
                       ViewAll(page: StoriesPage(), title: "Meditation"),
+
                       SizedBox(
                         height: 70,
                         child: SingleChildScrollView(
@@ -410,6 +416,60 @@ class HomePage extends StatelessWidget {
                                 ),
                                 name: 'Lake Toba',
                                 time: '10 min',
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      Container(
+                        width: 384,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter, // hướng gradient
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0x22FFF6F6), // màu đầu
+                              Color(0x22999494), // màu cuối
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Column(
+                            spacing: 10,
+                            children: [
+                              Row(
+                                spacing: 10,
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                      'assets/icons_project/Frame 3.png',
+                                    ),
+                                    width: 25,
+                                    height: 25,
+                                  ),
+                                  Text(
+                                    'Sleep Tips',
+                                    style: TextStyle(
+                                      color: Colors.yellow,
+                                      fontFamily: 'Jost',
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                'Try turning off your phone 30 minutes before going to bed to improve your sleep quality.',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Jost',
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),

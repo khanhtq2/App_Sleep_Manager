@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 
-class ScreenSplash extends StatelessWidget {
+class ScreenSplash extends StatefulWidget {
   const ScreenSplash({super.key});
+
+  @override
+  State<ScreenSplash> createState() => _ScreenSplashState();
+}
+
+class _ScreenSplashState extends State<ScreenSplash> {
+  @override
+  void initState() {
+    super.initState();
+
+    // ⏳ Sau 3 giây thì chuyển sang trang chính (MainLayout)
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, '/main');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     double logoHeight = 150;
     const String urlLogo = 'assets/img_project/Star.png';
+
     return Scaffold(
       backgroundColor: const Color(0xFF8ED6FF),
       body: Stack(
@@ -38,7 +54,7 @@ class ScreenSplash extends StatelessWidget {
           ),
           Center(
             child: ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(400),
+              borderRadius: BorderRadius.circular(400),
               child: Image.asset('assets/img_project/logo.jpg'),
             ),
           ),
