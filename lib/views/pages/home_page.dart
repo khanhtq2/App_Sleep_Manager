@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../card_widget/View_All_widget.dart';
+import '../card_widget/view_all_widget.dart';
 import '../pages/music_page.dart';
 import '../pages/stories_page.dart';
 import '../card_widget/card_music_widget.dart';
@@ -111,7 +111,7 @@ class HomePage extends StatelessWidget {
 
                   Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: Column(
+                    child: Column( 
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
