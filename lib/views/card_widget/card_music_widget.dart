@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/views/pages/music_player_screen.dart';
 
 class CardMusic extends StatelessWidget {
   final AssetImage img;
@@ -12,7 +13,14 @@ class CardMusic extends StatelessWidget {
       borderRadius: BorderRadius.circular(5),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => {},
+        onTap: () => {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MusicPlayerScreen(image: img, name: name),
+            ),
+          ),
+        },
         child: Ink.image(
           image: img,
           width: 176.4,

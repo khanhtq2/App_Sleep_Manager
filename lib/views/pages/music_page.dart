@@ -19,12 +19,7 @@ class _MusicPageState extends State<MusicPage> {
         title: Text('Music', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: Color.fromARGB(255, 7, 55, 100),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName('/main'));
-          },
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-        ),
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

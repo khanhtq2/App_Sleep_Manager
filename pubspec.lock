@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  circular_chart_flutter:
+    dependency: "direct main"
+    description:
+      name: circular_chart_flutter
+      sha256: "2b5c99f8e3b9ecdd771ad366f8e7525633da3410e52fe4fc5e09811d143414c1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   clock:
     dependency: transitive
     description:
