@@ -11,11 +11,11 @@ class ScreenLogin extends StatefulWidget {
 
 class _ScreenLoginState extends State<ScreenLogin> {
   bool _obscureText = true;
-
+  Color backgroundColor = Color.fromARGB(193, 219, 129, 255);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 7, 55, 100),
+      backgroundColor: const Color.fromARGB(255, 8, 64, 117),
       body: BackgroundLogoWidget(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -66,23 +66,22 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 ),
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
               // button đăng nhập
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
-                    context,
-                    Routes.mainLayout,
-                   
-                  );
+                  Navigator.pushReplacementNamed(context, Routes.mainLayout);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 219, 129, 255),
-                  minimumSize: const Size(double.infinity, 60),
+                  backgroundColor: backgroundColor,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 100,
+                  ),
                 ),
                 child: const Text(
-                  'Tiếp tục',
+                  'Đăng nhập',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 9, 16),
                     fontSize: 18,
@@ -90,23 +89,18 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 ),
               ),
 
-           
-
               // button quên mật khẩu
               Padding(
                 padding: const EdgeInsets.only(left: 200),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routes.forgetPassword,
-                      
-                    );
+                    Navigator.pushNamed(context, Routes.forgetPassword);
                   },
                   child: const Text(
                     'Quên mật khẩu?',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
+
                       fontSize: 18,
                       decoration: TextDecoration.none,
                     ),
@@ -116,7 +110,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
 
               // button tạo tài khoản mới
               Padding(
-                padding: const EdgeInsets.only( left: 200),
+                padding: const EdgeInsets.only(left: 200),
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.signup);
@@ -138,7 +132,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 219, 129, 255),
+                  backgroundColor: backgroundColor,
                   minimumSize: const Size(double.infinity, 60),
                 ),
                 child: const Row(
@@ -147,7 +141,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     SizedBox(width: 20),
                     Text(
                       'Đăng nhập với Google',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 18,
+                      ),
                     ),
                   ],
                 ),
@@ -159,7 +156,7 @@ class _ScreenLoginState extends State<ScreenLogin> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 219, 129, 255),
+                  backgroundColor: backgroundColor,
                   minimumSize: const Size(double.infinity, 60),
                 ),
                 child: const Row(
@@ -168,6 +165,24 @@ class _ScreenLoginState extends State<ScreenLogin> {
                     SizedBox(width: 20),
                     Text(
                       'Đăng nhập với Icloud',
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: backgroundColor,
+                  minimumSize: const Size(double.infinity, 60),
+                ),
+                child: const Row(
+                  children: [
+                    Icon(Icons.sms, color: Colors.black, size: 40),
+                    SizedBox(width: 20),
+                    Text(
+                      'Đăng nhập với OTP',
                       style: TextStyle(color: Colors.black, fontSize: 18),
                     ),
                   ],

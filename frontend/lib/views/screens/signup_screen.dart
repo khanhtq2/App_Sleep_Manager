@@ -129,7 +129,7 @@ class _ScreenSignUpState extends State<ScreenSignUp> {
                       ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(255, 219, 129, 255,),
+                          backgroundColor: Color.fromARGB(193, 219, 129, 255),
                           minimumSize: Size(double.infinity, 60),
                         ),
                         child: const Text(

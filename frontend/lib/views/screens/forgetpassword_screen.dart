@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'background_widget.dart';
-
+import '../../routes.dart';
 class ForgetPassword extends StatelessWidget {
   const ForgetPassword({super.key});
 
@@ -28,13 +28,14 @@ class ForgetPassword extends StatelessWidget {
                   ),
                 ),
               ),
+
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Xử lý gửi yêu cầu đặt lại mật khẩu
+                  Navigator.pushNamed(context, Routes.confirmOtp);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 2, 42, 79),
+                  backgroundColor: Color.fromARGB(193, 219, 129, 255),
                   padding: const EdgeInsets.symmetric(
                     vertical: 20,
                     horizontal: 100,
@@ -45,7 +46,10 @@ class ForgetPassword extends StatelessWidget {
                 ),
                 child: const Text(
                   'Gửi yêu cầu',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 0, 1, 0),
+                  ),
                 ),
               ),
             ],
