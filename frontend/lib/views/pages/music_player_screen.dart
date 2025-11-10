@@ -1,3 +1,4 @@
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 
 class MusicPlayerScreen extends StatefulWidget {
@@ -45,92 +46,104 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
       ),
       body: Container(
         width: double.infinity,
+        constraints: BoxConstraints(
+          minHeight: MediaQuery.of(context).size.height,
+        ),
         color: Color.fromARGB(255, 7, 55, 100),
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Container(
-            width: 320,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Color(0xFFFFFFFF).withOpacity(0.17),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadiusGeometry.circular(20),
-                  child: Image(
-                    image: widget.image,
-                    width: 250,
-                    height: 250,
-                    fit: BoxFit.cover,
-                  ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 350,
+                height: 600,
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFFFFF).withOpacity(0.17),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                SizedBox(height: 20),
-                Text(
-                  widget.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Jost',
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        _toggeleFavorite();
-                      },
-                      icon: Icon(
-                        isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: Colors.white,  
+                    ClipRRect(
+                      borderRadius: BorderRadiusGeometry.circular(20),
+                      child: Image(
+                        image: widget.image,
+                        width: 300,
+                        height: 300,
+                        fit: BoxFit.cover,
                       ),
                     ),
+                    SizedBox(height: 20),
+                    Text(
+                      widget.name,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Jost',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    Spacer(),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            _toggeleFavorite();
+                          },
+                          icon: Icon(
+                            isFavorite ? Icons.favorite : Icons.favorite_border,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    ProgressBar(
+                      progress: Duration(milliseconds: 1000),
+                      total: Duration(milliseconds: 100000),
+                      onSeek: (value) => (),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.shuffle),
+                          color: Colors.white,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.skip_previous),
+                          color: Colors.white,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.pause),
+                          color: Colors.white,
+                          iconSize: 50,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.skip_next),
+                          color: Colors.white,
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.repeat),
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
-                LinearProgressIndicator(
-                  value: 0.75, // Đã hoàn thành 75%
-                  backgroundColor: Colors.grey[300], // Màu nền
-                  valueColor: const AlwaysStoppedAnimation<Color>(
-                    Colors.blue,
-                  ), // Màu tiến trình
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.shuffle),
-                      color: Colors.white,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.skip_previous),
-                      color: Colors.white,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.pause),
-                      color: Colors.white,
-                      iconSize: 50,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.skip_next),
-                      color: Colors.white,
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.repeat),
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

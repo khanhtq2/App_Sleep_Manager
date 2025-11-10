@@ -10,8 +10,8 @@ class BackgroundLogoWidget extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/img_project/Screen_splash.png'          ),
-          
+          image: AssetImage('assets/img_project/Screen_splash.png'),
+
           fit: BoxFit.cover,
         ),
         gradient: LinearGradient(
@@ -22,31 +22,33 @@ class BackgroundLogoWidget extends StatelessWidget {
           ],
         ),
       ),
-      child: Column(
-        children: [
-          // LOGO
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(400),
-                  child: Image.asset(
-                    'assets/img_project/logo.jpg',
-                    width: 250,
-                    fit: BoxFit.cover,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            // LOGO
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(400),
+                    child: Image.asset(
+                      'assets/img_project/logo.jpg',
+                      width: 250,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
 
-          const SizedBox(height: 10),
+            const SizedBox(height: 10),
 
-          // NỘI DUNG (form login) được truyền từ ScreenLogin
-          child,
-        ],
+            // NỘI DUNG (form login) được truyền từ ScreenLogin
+            child,
+          ],
+        ),
       ),
     );
   }

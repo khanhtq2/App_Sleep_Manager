@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/views/pages/static_page.dart';
 import 'views/pages/home_page.dart';
 
 class MainLayout extends StatefulWidget {
@@ -13,7 +14,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   final List<Widget> _pages = const [
     HomePage(),
-    HomePage(),
+    StaticPage(),
     HomePage(),
     HomePage(),
   ];
