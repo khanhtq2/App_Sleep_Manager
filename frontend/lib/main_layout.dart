@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/views/pages/profile_page.dart';
 import 'package:vietsomni/views/pages/static_page.dart';
 import 'views/pages/home_page.dart';
 
@@ -12,11 +13,11 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = const [
-    HomePage(),
-    StaticPage(),
-    HomePage(),
-    HomePage(),
+  final List<Widget> _pages = [
+    const HomePage(),
+    const StaticPage(),
+    const HomePage(),
+    ProfilePage(),
   ];
 
   @override
