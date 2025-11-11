@@ -20,10 +20,15 @@ class HomePage extends StatelessWidget {
           ),
           child: Container(
             width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 7, 55, 100),
-              image: DecorationImage(
-                image: AssetImage('assets/img_project/Background.png'),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 7, 55, 100),
+                  Color.fromARGB(255, 15, 32, 64),
+                ],
+                stops: [0, 0.6],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
               ),
             ),
             child: Padding(
@@ -45,6 +50,7 @@ class HomePage extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
+                        //
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,20 +115,20 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 25, width: double.infinity),
+                  SizedBox(height: 5, width: double.infinity),
 
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                backgroundColor: Color(0xFF313050),
-                                fixedSize: Size(102, 28),
+                            Container(
+                              padding: EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF313050),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
                                 'Start Sleep',
@@ -133,11 +139,11 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                backgroundColor: Color(0xFF313050),
-                                fixedSize: Size(102, 28),
+                            Container(
+                              padding: EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF313050),
+                                borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
                                 'Set Alarm',
@@ -154,7 +160,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 20),
 
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             // Bedtime
                             Container(
@@ -204,13 +210,15 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(width: 65),
+                                  SizedBox(width: 60),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       IconButton(
-                                        iconSize: 10,
-                                        onPressed: () {},
+                                        iconSize: 15,
+                                        onPressed: () {
+                                          print('object');
+                                        },
                                         icon: Icon(
                                           Icons.mode_edit_outline,
                                           color: Colors.white,
@@ -284,12 +292,12 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(width: 65),
+                                  SizedBox(width: 70),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       IconButton(
-                                        iconSize: 10,
+                                        iconSize: 15,
                                         onPressed: () {},
                                         icon: Icon(
                                           Icons.mode_edit_outline,

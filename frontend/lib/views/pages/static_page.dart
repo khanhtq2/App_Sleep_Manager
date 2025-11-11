@@ -200,10 +200,15 @@ class _StaticPageState extends State<StaticPage> {
       ),
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 7, 55, 100),
-          image: DecorationImage(
-            image: AssetImage('assets/img_project/Background.png'),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 7, 55, 100),
+              Color.fromARGB(255, 15, 32, 64),
+            ],
+            stops: [0, 0.6],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
         ),
         child: SingleChildScrollView(

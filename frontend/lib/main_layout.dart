@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vietsomni/views/pages/profile_page.dart';
 import 'package:vietsomni/views/pages/static_page.dart';
 import 'views/pages/home_page.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -24,24 +25,74 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex], // nội dung thay đổi theo tab
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color(0xFF2E294E),
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white70,
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() => _selectedIndex = index);
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
-            label: 'Statistic',
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color(0xFF2E294E),
+
+        // Màu của thanh điều hướng (phần màu tím đậm)
+        color: const Color(0xFF2E294E),
+
+        // Màu của icon khi được chọn
+        index: _selectedIndex,
+        height: 60.0,
+        animationCurve: Easing.standardAccelerate,
+        animationDuration: const Duration(milliseconds: 400),
+        buttonBackgroundColor: Color.fromARGB(255, 66, 59, 112),
+        // Items là một danh sách Widget (chủ yếu là Icon)
+        items: const <Widget>[
+          Icon(
+            Icons.nights_stay,
+            size: 30,
+            color: Colors.white,
+            shadows: [
+              Shadow(
+                offset: Offset(2, 4),
+                blurRadius: 3.5,
+                color: Color.fromARGB(135, 39, 38, 38),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.spa), label: 'Explore'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          Icon(
+            Icons.bar_chart,
+            size: 30,
+            color: Colors.white,
+            shadows: [
+              Shadow(
+                offset: Offset(2, 4),
+                blurRadius: 3.5,
+                color: Color.fromARGB(135, 39, 38, 38),
+              ),
+            ],
+          ),
+          Icon(
+            Icons.spa,
+            size: 30,
+            color: Colors.white,
+            shadows: [
+              Shadow(
+                offset: Offset(2, 4),
+                blurRadius: 3.5,
+                color: Color.fromARGB(135, 39, 38, 38),
+              ),
+            ],
+          ),
+          Icon(
+            Icons.person,
+            size: 30,
+            color: Colors.white,
+            shadows: [
+              Shadow(
+                offset: Offset(2, 4),
+                blurRadius: 3.5,
+                color: Color.fromARGB(135, 39, 38, 38),
+              ),
+            ],
+          ),
         ],
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }

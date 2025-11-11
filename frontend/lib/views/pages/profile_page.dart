@@ -33,96 +33,119 @@ class ProfilePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color.fromARGB(255, 7, 55, 100),
-              Color.fromARGB(255, 15, 32, 64),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
           ),
-        ),
-        child: Column(
-          spacing: 10,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Text(
-                        'Edit Profile',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: 'Jost',
-                          fontWeight: FontWeight.bold,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 7, 55, 100),
+                Color.fromARGB(255, 15, 32, 64),
+              ],
+              stops: [0, 0.6],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: Column(
+            spacing: 10,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Row(
+                      children: [
+                        Text(
+                          'Edit Profile',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: 'Jost',
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                    ],
+                        Icon(
+                          Icons.arrow_forward_ios_outlined,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-            InforCard(icon: Icons.person_rounded, text: currentUser.name),
-            Divider(color: Colors.white24),
-            InforCard(icon: Icons.email_rounded, text: currentUser.email),
-            Divider(color: Colors.white24),
-            InforCard(icon: Icons.phone_rounded, text: currentUser.phoneNumber),
-            Divider(color: Colors.white24),
-            InforCard(
-              icon: Icons.cake_rounded,
-              text:
-                  '${currentUser.dateOfBirth.day}/${currentUser.dateOfBirth.month}/${currentUser.dateOfBirth.year}',
-            ),
-            Divider(color: Colors.white24),
-            InforCard(icon: Icons.home_rounded, text: currentUser.address),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Setting',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Jost',
-                    fontWeight: FontWeight.bold,
+                ],
+              ),
+              InforCard(icon: Icons.person_rounded, text: currentUser.name),
+              Divider(color: Colors.white24),
+              InforCard(icon: Icons.email_rounded, text: currentUser.email),
+              Divider(color: Colors.white24),
+              InforCard(
+                icon: Icons.phone_rounded,
+                text: currentUser.phoneNumber,
+              ),
+              Divider(color: Colors.white24),
+              InforCard(
+                icon: Icons.cake_rounded,
+                text:
+                    '${currentUser.dateOfBirth.day}/${currentUser.dateOfBirth.month}/${currentUser.dateOfBirth.year}',
+              ),
+              Divider(color: Colors.white24),
+              InforCard(icon: Icons.home_rounded, text: currentUser.address),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Setting',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: 'Jost',
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+                ],
+              ),
+              Divider(color: Colors.white24),
+              InforCard(icon: Icons.help_rounded, text: 'FAQ', isSetting: true),
+              Divider(color: Colors.white24),
+              InforCard(
+                icon: Icons.privacy_tip_rounded,
+                text: 'Privacy Policy',
+                isSetting: true,
+              ),
+              Divider(color: Colors.white24),
+              InforCard(
+                icon: Icons.description_rounded,
+                text: 'Terms of Service',
+                isSetting: true,
+              ),
+              Divider(color: Colors.white24),
+              InforCard(
+                icon: Icons.feedback_rounded,
+                text: 'Feedback',
+                isSetting: true,
+              ),
+              SizedBox(height: 30),
+              Container(
+                padding: EdgeInsets.only(
+                  left: 20,
+                  top: 10,
+                  right: 10,
+                  bottom: 10,
                 ),
-              ],
-            ),
-            Divider(color: Colors.white24),
-            InforCard(icon: Icons.help_rounded, text: 'FAQ', isSetting: true),
-            Divider(color: Colors.white24),
-            InforCard(
-              icon: Icons.privacy_tip_rounded,
-              text: 'Privacy Policy',
-              isSetting: true,
-            ),
-            Divider(color: Colors.white24),
-            InforCard(
-              icon: Icons.description_rounded,
-              text: 'Terms of Service',
-              isSetting: true,
-            ),
-            Divider(color: Colors.white24),
-            InforCard(
-              icon: Icons.feedback_rounded,
-              text: 'Feedback',
-              isSetting: true,
-            ),
-          ],
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 125, 37, 31),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: InforCard(icon: Icons.logout, text: 'Logout'),
+              ),
+            ],
+          ),
         ),
       ),
     );

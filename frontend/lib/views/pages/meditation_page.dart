@@ -13,7 +13,22 @@ class MeditationPage extends StatelessWidget {
         iconTheme: IconThemeData(color: Colors.white),
       ),
 
-      body: Center(child: Text('Stories Page Content Here')),
+      body: Container(
+        constraints: BoxConstraints(
+          minHeight: MediaQuery.of(context).size.height,
+        ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 7, 55, 100),
+              Color.fromARGB(255, 15, 32, 64),
+            ],
+            stops: [0, 0.6],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+      ),
     );
   }
 }
