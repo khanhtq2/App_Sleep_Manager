@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/views/pages/explore_page.dart';
 import 'package:vietsomni/views/pages/profile_page.dart';
 import 'package:vietsomni/views/pages/static_page.dart';
 import 'views/pages/home_page.dart';
@@ -14,10 +15,19 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomePage(),
+  String? _initialExploreChip;
+
+  void navigationToExplore(String chipName) {
+    setState(() {
+      _selectedIndex = 2;
+      _initialExploreChip = chipName;
+    });
+  }
+
+  List<Widget> get _pages => [
+    HomePage(navigationToExplore: navigationToExplore),
     const StaticPage(),
-    const HomePage(),
+    ExplorePage(initialChip: _initialExploreChip),
     ProfilePage(),
   ];
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/main_layout.dart';
 import 'background_widget.dart';
 import '../../routes.dart';
 
@@ -72,7 +73,12 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 // button đăng nhập
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, Routes.mainLayout);
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainLayout(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: backgroundColor,

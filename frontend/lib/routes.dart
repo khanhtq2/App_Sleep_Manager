@@ -1,7 +1,6 @@
 // pages
 import 'package:flutter/material.dart';
 
-import 'views/pages/home_page.dart';
 import 'views/pages/music_page.dart';
 import 'views/pages/stories_page.dart';
 
@@ -16,7 +15,6 @@ import 'main_layout.dart';
 
 // viewmodels
 
-
 class Routes {
   //screens
   static const String splash = '/splash';
@@ -26,14 +24,11 @@ class Routes {
   static const String confirmOtp = '/confirmOtp';
   static const String restartPassword = '/restartPassword';
 
-
   //pages
   static const String home = '/home';
   static const String music = '/music';
   static const String stories = '/stories';
   static const String mainLayout = '/mainLayout';
-
-  
 }
 
 Map<String, WidgetBuilder> appRoutes = {
@@ -45,13 +40,10 @@ Map<String, WidgetBuilder> appRoutes = {
   Routes.confirmOtp: (_) => const ConfirmOtp(),
   Routes.restartPassword: (_) => const RestartPassword(),
 
-
   //pages
-  Routes.home: (_) => const HomePage(),
   Routes.music: (_) => const MusicPage(),
   Routes.stories: (_) => const StoriesPage(),
   Routes.mainLayout: (_) => const MainLayout(),
 
   //viewmodel
-  
 };

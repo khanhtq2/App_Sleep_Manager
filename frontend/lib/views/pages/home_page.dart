@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:vietsomni/views/pages/set_time_sleep_page.dart';
+import 'package:vietsomni/views/pages/alarm_page.dart';
 import '../card_widget/view_all_widget.dart';
 import 'package:vietsomni/views/pages/meditation_page.dart';
-
+import '../card_widget/set_time_widget.dart';
 import '../pages/music_page.dart';
 import '../pages/stories_page.dart';
 import '../card_widget/card_music_widget.dart';
 import '../card_widget/card_stories_widget.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final Function(String) navigationToExplore;
+
+  const HomePage({super.key, required this.navigationToExplore});
 
   @override
   Widget build(BuildContext context) {
@@ -163,166 +167,33 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             // Bedtime
-                            Container(
-                              width: 160,
-                              height: 52,
-                              decoration: BoxDecoration(
-                                color: Color(0xFF313050),
-                                borderRadius: BorderRadius.circular(8),
+                            SetTimeCard(
+                              icon: AssetImage(
+                                'assets/icons_project/Moon Sleep.png',
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Image(
-                                            width: 15,
-                                            height: 15,
-                                            image: AssetImage(
-                                              'assets/icons_project/Moon Sleep.png',
-                                            ),
-                                          ),
-                                          SizedBox(width: 8),
-                                          Text(
-                                            'Bedtime',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'Jost',
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Text(
-                                        '22 : 00',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Jost',
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(width: 60),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      IconButton(
-                                        iconSize: 15,
-                                        onPressed: () {
-                                          print('object');
-                                        },
-                                        icon: Icon(
-                                          Icons.mode_edit_outline,
-                                          color: Colors.white,
-                                        ),
-                                        style: IconButton.styleFrom(
-                                          padding: EdgeInsets
-                                              .zero, // bỏ khoảng trống
-                                          minimumSize: Size(
-                                            10,
-                                            10,
-                                          ), // thu nhỏ vùng bấm
-                                          tapTargetSize: MaterialTapTargetSize
-                                              .shrinkWrap, // giảm vùng hiệu ứng
-                                          backgroundColor:
-                                              Colors.transparent, // không nền
-                                          overlayColor: Colors
-                                              .transparent, // không hiệu ứng khi nhấn
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                              time: '22 : 00',
+                              title: 'Bedtime',
+                              page: BedtimePage(),
                             ),
-
-                            //Alarm
-                            Container(
-                              width: 160,
-                              height: 52,
-                              decoration: BoxDecoration(
-                                color: Color(0xFF313050),
-                                borderRadius: BorderRadius.circular(8),
+                            // Alarm
+                            SetTimeCard(
+                              title: 'Alarm',
+                              icon: AssetImage(
+                                'assets/icons_project/Alarm.png',
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Image(
-                                            width: 15,
-                                            height: 15,
-                                            image: AssetImage(
-                                              'assets/icons_project/Alarm.png',
-                                            ),
-                                          ),
-                                          SizedBox(width: 8),
-                                          Text(
-                                            'Alarm',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.bold,
-                                              fontFamily: 'Jost',
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Text(
-                                        '04 : 00',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Jost',
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(width: 70),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      IconButton(
-                                        iconSize: 15,
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.mode_edit_outline,
-                                          color: Colors.white,
-                                        ),
-                                        style: IconButton.styleFrom(
-                                          padding: EdgeInsets.zero,
-                                          minimumSize: Size(10, 10),
-                                          tapTargetSize:
-                                              MaterialTapTargetSize.shrinkWrap,
-                                          backgroundColor: Colors.transparent,
-                                          overlayColor: Colors.transparent,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                              time: '04 : 00',
+                              page: AlarmPage(),
                             ),
                           ],
                         ),
                         SizedBox(height: 25),
 
                         //Music Bar
-                        ViewAll(page: MusicPage(), title: "Music"),
+                        ViewAll(
+                          page: MusicPage(),
+                          title: "Music",
+                          navigationToExplore: navigationToExplore,
+                        ),
 
                         SizedBox(
                           height: 140,
@@ -355,7 +226,11 @@ class HomePage extends StatelessWidget {
                         ),
 
                         //Stories Bar
-                        ViewAll(page: StoriesPage(), title: "Stories"),
+                        ViewAll(
+                          page: StoriesPage(),
+                          title: "Stories",
+                          navigationToExplore: navigationToExplore,
+                        ),
 
                         SizedBox(
                           height: 70,
@@ -398,7 +273,11 @@ class HomePage extends StatelessWidget {
                         ),
 
                         //Meditation Bar
-                        ViewAll(page: MeditationPage(), title: "Meditation"),
+                        ViewAll(
+                          page: MeditationPage(),
+                          title: "Meditation",
+                          navigationToExplore: navigationToExplore,
+                        ),
 
                         SizedBox(
                           height: 70,

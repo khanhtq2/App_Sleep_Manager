@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 class ViewAll extends StatelessWidget {
   final Widget page;
   final String title;
+  final Function(String) navigationToExplore;
 
-  const ViewAll({super.key, required this.page, required this.title});
+  const ViewAll({
+    super.key,
+    required this.page,
+    required this.title,
+    required this.navigationToExplore,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +28,7 @@ class ViewAll extends StatelessWidget {
         ),
         TextButton.icon(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => page),
-            );
+            navigationToExplore(title);
           },
           label: Text('View all'),
           icon: Icon(Icons.arrow_forward_ios),
