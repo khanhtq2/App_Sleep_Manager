@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'routes.dart'; // 
+import 'routes.dart'; //
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.splash, // Bắt đầu từ trang chờ
-      routes: appRoutes, // Dùng map từ file routes.dart
+      initialRoute: Routes.splash,
+      routes: appRoutes,
     );
   }
 }

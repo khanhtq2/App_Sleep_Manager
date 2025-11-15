@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vietsomni/views/pages/explore_page.dart';
 import 'package:vietsomni/views/pages/profile_page.dart';
+import 'package:vietsomni/views/pages/sleep_page.dart';
 import 'package:vietsomni/views/pages/static_page.dart';
 import 'views/pages/home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -27,6 +28,7 @@ class _MainLayoutState extends State<MainLayout> {
   List<Widget> get _pages => [
     HomePage(navigationToExplore: navigationToExplore),
     const StaticPage(),
+    SleepPage(),
     ExplorePage(initialChip: _initialExploreChip),
     ProfilePage(),
   ];
@@ -36,7 +38,7 @@ class _MainLayoutState extends State<MainLayout> {
     return Scaffold(
       body: _pages[_selectedIndex], // nội dung thay đổi theo tab
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color(0xFF2E294E),
+        backgroundColor: Color.fromARGB(255, 66, 58, 122),
 
         // Màu của thanh điều hướng (phần màu tím đậm)
         color: const Color(0xFF2E294E),
@@ -46,11 +48,13 @@ class _MainLayoutState extends State<MainLayout> {
         height: 60.0,
         animationCurve: Easing.standardAccelerate,
         animationDuration: const Duration(milliseconds: 400),
-        buttonBackgroundColor: Color.fromARGB(255, 66, 59, 112),
+        buttonBackgroundColor: _selectedIndex == 2
+            ? Colors.transparent
+            : Color.fromARGB(255, 57, 51, 96),
         // Items là một danh sách Widget (chủ yếu là Icon)
-        items: const <Widget>[
+        items: <Widget>[
           Icon(
-            Icons.nights_stay,
+            Icons.house,
             size: 30,
             color: Colors.white,
             shadows: [
@@ -73,8 +77,26 @@ class _MainLayoutState extends State<MainLayout> {
               ),
             ],
           ),
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 83, 55, 174),
+                  Color.fromARGB(255, 92, 62, 190),
+                ],
+
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+
+                stops: [0.63, 0.23],
+              ),
+            ),
+            child: Icon(Icons.nights_stay, size: 40, color: Colors.amber[200]),
+          ),
           Icon(
-            Icons.spa,
+            Icons.library_music_sharp,
             size: 30,
             color: Colors.white,
             shadows: [

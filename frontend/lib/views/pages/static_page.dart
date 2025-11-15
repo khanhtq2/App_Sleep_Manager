@@ -363,9 +363,7 @@ class _ChartBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(size / 2),
-        boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.3), blurRadius: 4),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black, blurRadius: 4)],
       ),
       child: Center(
         child: Text(

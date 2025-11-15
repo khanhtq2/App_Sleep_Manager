@@ -40,6 +40,11 @@ dependencies:
   audio_video_progress_bar: ^2.0.3
   fl_chart: ^1.1.1
   curved_navigation_bar: ^1.0.6
+  progress_circle: ^1.2.0
+  gauges: ^1.0.0
+  syncfusion_flutter_gauges: ^31.2.10
+  circular_slider: ^0.1.1
+  sleek_circular_slider: ^2.1.0
 
 dev_dependencies:
   flutter_test:

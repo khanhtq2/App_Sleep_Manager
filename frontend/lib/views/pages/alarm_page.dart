@@ -79,7 +79,7 @@ class _AlarmPageState extends State<AlarmPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Set Bedtime',
+                  'Set Alarm',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -89,19 +89,7 @@ class _AlarmPageState extends State<AlarmPage> {
                 ),
               ],
             ),
-            Center(
-              child: Text(
-                'We will wake up when you are in the rem sleep phase',
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontFamily: 'Jost',
-                ),
-              ),
-            ),
-            Spacer(),
+
             TimeCardWidget(
               icon: Icons.bedtime_rounded,
               title: 'Sleep goals',
