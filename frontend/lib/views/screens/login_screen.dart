@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:vietsomni/main_layout.dart';
+
 import 'background_widget.dart';
 import '../../routes.dart';
 
@@ -101,8 +103,10 @@ class _ScreenLoginState extends State<ScreenLogin> {
                   padding: const EdgeInsets.only(left: 200),
                   child: TextButton(
                     onPressed: () {
+                    
                       Navigator.pushNamed(context, Routes.forgetPassword);
                     },
+
                     child: const Text(
                       'Quên mật khẩu?',
                       style: TextStyle(
@@ -179,7 +183,9 @@ class _ScreenLoginState extends State<ScreenLogin> {
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                  },
+
                   style: ElevatedButton.styleFrom(
                     backgroundColor: backgroundColor,
                     minimumSize: const Size(double.infinity, 60),

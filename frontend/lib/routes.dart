@@ -25,7 +25,7 @@ class Routes {
   static const String restartPassword = '/restartPassword';
 
   //pages
-  static const String home = '/home';
+static const home = '/views/pages/home_page.dart';
   static const String music = '/music';
   static const String stories = '/stories';
   static const String mainLayout = '/mainLayout';
@@ -41,9 +41,10 @@ Map<String, WidgetBuilder> appRoutes = {
   Routes.restartPassword: (_) => const RestartPassword(),
 
   //pages
+  
   Routes.music: (_) => const MusicPage(),
   Routes.stories: (_) => const StoriesPage(),
   Routes.mainLayout: (_) => const MainLayout(),
 
-  //viewmodel
+
 };
